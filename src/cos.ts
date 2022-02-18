@@ -30,17 +30,6 @@ const getMD5 = (imagePath: string) => {
   });
 };
 
-function trim(str: any) {
-  if (str == null) return "";
-  while (str.charAt(0) == "/" || str.charAt(0) == "\\" || str.charAt(0) == " ") {
-    str = str.substring(1, str.length);
-  }
-  while (str.charAt(str.length - 1) == "/" || str.charAt(str.length - 1) == "\\" || str.charAt(str.length - 1) == " ") {
-    str = str.substring(0, str.length - 1);
-  }
-  return str;
-}
-
 export default function (config: vscode.WorkspaceConfiguration, imagePath: string, selectFilePath?: string) {
   let localFile = selectFilePath || imagePath,
     bucket = config.bucket,
@@ -70,7 +59,7 @@ export default function (config: vscode.WorkspaceConfiguration, imagePath: strin
           ["filename", filename],
           ["md5", md5],
         ]);
-        let remotePath = trim(config.remotePath);
+        let remotePath = config.remotePath;
         let remoteName = config.remoteName;
         vars.forEach((value, key) => {
           let reg = new RegExp("\\{" + key + "\\}", "g");
