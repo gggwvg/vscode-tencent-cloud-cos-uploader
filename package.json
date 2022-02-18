@@ -1,0 +1,140 @@
+{
+  "name": "tencent-cloud-cos-uploader",
+  "displayName": "tencent-cloud-cos-uploader",
+  "description": "VSCode 插件，在 markdown 中选择文件或截图上传至腾讯云 COS",
+  "version": "0.0.1",
+  "publisher": "gggwvg",
+  "author": {
+    "name": "gggwvg",
+    "email": "ggggwvg@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gggwvg/tencent-cloud-cos-uploader.git"
+  },
+  "homepage": "https://github.com/gggwvg/tencent-cloud-cos-uploader",
+  "bugs": {
+    "url": "https://github.com/gggwvg/tencent-cloud-cos-uploader/issues"
+  },
+  "engines": {
+    "vscode": "^1.32.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.tencentCloudCOSUploader.paste",
+        "title": "上传粘贴板中的截图"
+      },
+      {
+        "command": "extension.tencentCloudCOSUploader.select",
+        "title": "上传选择的文件"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.tencentCloudCOSUploader.paste",
+        "key": "ctrl+alt+p",
+        "mac": "cmd+alt+p",
+        "linux": "ctrl+alt+p",
+        "win": "ctrl+alt+p",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.tencentCloudCOSUploader.select",
+        "key": "ctrl+alt+o",
+        "mac": "cmd+alt+o",
+        "win": "ctrl+alt+o",
+        "linux": "ctrl+alt+o",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "tencentCloudCOSUploader",
+      "properties": {
+        "tencentCloudCOSUploader.enable": {
+          "type": "boolean",
+          "default": "true",
+          "description": "腾讯云COS上传工具开关"
+        },
+        "tencentCloudCOSUploader.secretId": {
+          "type": "string",
+          "default": "",
+          "description": "腾讯云 Secret ID"
+        },
+        "tencentCloudCOSUploader.secretKey": {
+          "type": "string",
+          "default": "",
+          "description": "腾讯云 Secret Key"
+        },
+        "tencentCloudCOSUploader.bucket": {
+          "type": "string",
+          "default": "",
+          "description": "存储桶名称，如 test-1250000000"
+        },
+        "tencentCloudCOSUploader.region": {
+          "type": "string",
+          "default": "",
+          "description": "Bucket 所在区域"
+        },
+        "tencentCloudCOSUploader.remotePath": {
+          "type": "string",
+          "default": "",
+          "description": "存储目录, 如 a/b, 存储根路径则无需填写，无需以 / 开头"
+        },
+        "tencentCloudCOSUploader.remoteName": {
+          "type": "string",
+          "default": "{md5}",
+          "description": "文件名, 不用带文件扩展名，默认使用文件的 md5 值作为文件名"
+        },
+        "tencentCloudCOSUploader.isPublic": {
+          "type": "boolean",
+          "default": "true",
+          "description": "存储桶是否为公有可访问，如为私有，且希望上传后的url带签名，则设置为false"
+        },
+        "tencentCloudCOSUploader.duration": {
+          "type": "number",
+          "default": "31536000",
+          "description": "签名有效期，单位为秒，isPublic 设置为 false 时有效"
+        },
+        "tencentCloudCOSUploader.domain": {
+          "type": "string",
+          "default": "",
+          "description": "自定义的域名"
+        },
+        "tencentCloudCOSUploader.localPath": {
+          "type": "string",
+          "default": "/tmp/.tencentCloudCOSUploader",
+          "description": "临时目录"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "vscode:package": "vsce package",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.28",
+    "tslint": "^5.12.1",
+    "@types/node": "^10.12.21",
+    "@types/mocha": "^2.2.42"
+  },
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.5.7",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.18.1"
+  }
+}
