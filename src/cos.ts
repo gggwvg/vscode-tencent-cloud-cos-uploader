@@ -61,13 +61,19 @@ export default function (config: vscode.WorkspaceConfiguration, imagePath: strin
         ]);
         let remotePath = config.remotePath;
         let remoteName = config.remoteName;
+
         vars.forEach((value, key) => {
           let reg = new RegExp("\\{" + key + "\\}", "g");
-          remotePath = remotePath.replaceAll(reg, value);
-          remoteName = remoteName.replaceAll(reg, value);
+          remotePath = remotePath.replace(reg, value);
+          remoteName = remoteName.replace(reg, value);
         });
+
+        console.log(remotePath);
+
         const remoteFile = path.join(remotePath, `${remoteName}${extname}`);
         cos = cos || initInstance(config);
+
+        console.log(remoteFile);
 
         cos.putObject(
           {
