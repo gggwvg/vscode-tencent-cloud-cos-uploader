@@ -2,7 +2,7 @@
   "name": "tencent-cloud-cos-uploader",
   "displayName": "tencent-cloud-cos-uploader",
   "description": "VSCode 插件，在 markdown 中选择文件或截图上传至腾讯云 COS",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "gggwvg",
   "author": {
     "name": "gggwvg",
@@ -57,7 +57,7 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "tencentCloudCOSUploader",
+      "title": "Tencent Cloud COS Uploader",
       "properties": {
         "tencentCloudCOSUploader.enable": {
           "type": "boolean",
@@ -87,7 +87,7 @@
         "tencentCloudCOSUploader.remotePath": {
           "type": "string",
           "default": "",
-          "description": "存储目录, 如 a/b, 存储根路径则无需填写，无需以 / 开头"
+          "description": "存储目录, 如 a/b, 存储根路径则无需填写，无需以 / 开头和结尾"
         },
         "tencentCloudCOSUploader.remoteName": {
           "type": "string",
@@ -127,7 +127,7 @@
   },
   "devDependencies": {
     "typescript": "^3.3.1",
-    "vscode": "^1.1.28",
+    "vscode": "^1.1.37",
     "tslint": "^5.12.1",
     "@types/node": "^10.12.21",
     "@types/mocha": "^2.2.42"
