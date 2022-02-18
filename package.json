@@ -2,7 +2,7 @@
   "name": "tencent-cloud-cos-uploader",
   "displayName": "tencent-cloud-cos-uploader",
   "description": "VSCode 插件，在 markdown 中选择文件或截图上传至腾讯云 COS",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "gggwvg",
   "author": {
     "name": "gggwvg",

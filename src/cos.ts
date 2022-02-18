@@ -70,7 +70,7 @@ export default function (config: vscode.WorkspaceConfiguration, imagePath: strin
 
         console.log(remotePath);
 
-        const remoteFile = path.join(remotePath, `${remoteName}${extname}`);
+        const remoteFile = path.posix.join(remotePath, `${remoteName}${extname}`);
         cos = cos || initInstance(config);
 
         console.log(remoteFile);
