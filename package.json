@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gggwvg/tencent-cloud-cos-uploader.git"
+    "url": "https://github.com/gggwvg/vscode-tencent-cloud-cos-uploader.git"
   },
-  "homepage": "https://github.com/gggwvg/tencent-cloud-cos-uploader",
+  "homepage": "https://github.com/gggwvg/vscode-tencent-cloud-cos-uploader",
   "bugs": {
-    "url": "https://github.com/gggwvg/tencent-cloud-cos-uploader/issues"
+    "url": "https://github.com/gggwvg/vscode-tencent-cloud-cos-uploader/issues"
   },
   "engines": {
     "vscode": "^1.32.0"
